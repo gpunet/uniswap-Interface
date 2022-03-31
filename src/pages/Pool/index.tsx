@@ -309,6 +309,7 @@ export default function Pool() {
                     type="checkbox"
                     onClick={() => setUserHideClosedPositions(!userHideClosedPositions)}
                     checked={!userHideClosedPositions}
+                    defaultChecked={false}
                   />
                 </ShowInactiveToggle>
               ) : null}

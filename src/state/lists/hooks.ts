@@ -1,4 +1,5 @@
 import DEFAULT_TOKEN_LIST from '@uniswap/default-token-list'
+import ANIMAL_TOKENS_LIST from '../../constants/animal-default.tokenlist.json'
 import { TokenList } from '@uniswap/token-lists'
 import { IS_ON_APP_URL } from 'constants/misc'
 import { useMemo } from 'react'
@@ -42,7 +43,7 @@ function listToTokenMap(list: TokenList): TokenAddressMap {
 }
 
 const TRANSFORMED_DEFAULT_TOKEN_LIST = listToTokenMap(DEFAULT_TOKEN_LIST)
-
+const ANIMAL_DEFAULT_TOKEN_LIST = listToTokenMap(ANIMAL_TOKENS_LIST)
 export function useAllLists(): AppState['lists']['byUrl'] {
   return useAppSelector((state) => state.lists.byUrl)
 }
@@ -97,7 +98,8 @@ export function useInactiveListUrls(): string[] {
 export function useCombinedActiveList(): TokenAddressMap {
   const activeListUrls = useActiveListUrls()
   const activeTokens = useCombinedTokenMapFromUrls(activeListUrls)
-  return combineMaps(activeTokens, TRANSFORMED_DEFAULT_TOKEN_LIST)
+  const combineTokens = combineMaps(activeTokens, TRANSFORMED_DEFAULT_TOKEN_LIST)
+  return combineMaps(combineTokens, ANIMAL_DEFAULT_TOKEN_LIST)
 }
 
 // list of tokens not supported on interface, used to show warnings and prevent swaps and adds

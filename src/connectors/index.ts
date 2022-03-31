@@ -28,8 +28,8 @@ const NETWORK_URLS: { [key in SupportedChainId]: string } = {
   [SupportedChainId.OPTIMISTIC_KOVAN]: `https://optimism-kovan.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_ONE]: `https://arbitrum-mainnet.infura.io/v3/${INFURA_KEY}`,
   [SupportedChainId.ARBITRUM_RINKEBY]: `https://arbitrum-rinkeby.infura.io/v3/${INFURA_KEY}`,
-  [SupportedChainId.POLYGON]: `https://rpc-mainnet.maticvigil.com/v1/856fcedcf8b96590c1becbd64a42276b26c5bb45`,
-  [SupportedChainId.POLYGON_MUMBAI]: `https://rpc-mumbai.maticvigil.com/v1/856fcedcf8b96590c1becbd64a42276b26c5bb45`,
+  [SupportedChainId.POLYGON]: `https://polygon-mainnet.infura.io/v3/${INFURA_KEY}`,
+  [SupportedChainId.POLYGON_MUMBAI]: `https://polygon-mumbai.infura.io/v3/${INFURA_KEY}`,
 }
 
 export const network = new NetworkConnector({

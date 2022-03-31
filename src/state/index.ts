@@ -33,7 +33,7 @@ const store = configureStore({
     [api.reducerPath]: api.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ thunk: true })
+    getDefaultMiddleware({ thunk: true, serializableCheck: false })
       .concat(api.middleware)
       .concat(save({ states: PERSISTED_KEYS, debounce: 1000 })),
   preloadedState: load({ states: PERSISTED_KEYS }),

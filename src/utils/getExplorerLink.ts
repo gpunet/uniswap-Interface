@@ -37,7 +37,32 @@ export function getExplorerLink(chainId: number, data: string, type: ExplorerDat
         return `https://explorer.arbitrum.io/`
     }
   }
-
+  if (chainId === SupportedChainId.POLYGON_MUMBAI) {
+    switch (type) {
+      case ExplorerDataType.TRANSACTION:
+        return `https://mumbai.polygonscan.com//tx/${data}`
+      case ExplorerDataType.ADDRESS:
+      case ExplorerDataType.TOKEN:
+        return `https://mumbai.polygonscan.com//address/${data}`
+      case ExplorerDataType.BLOCK:
+        return `https://mumbai.polygonscan.com//block/${data}`
+      default:
+        return `https://mumbai.polygonscan.com//`
+    }
+  }
+  if (chainId === SupportedChainId.POLYGON) {
+    switch (type) {
+      case ExplorerDataType.TRANSACTION:
+        return `https://polygonscan.com//tx/${data}`
+      case ExplorerDataType.ADDRESS:
+      case ExplorerDataType.TOKEN:
+        return `https://polygonscan.com//address/${data}`
+      case ExplorerDataType.BLOCK:
+        return `https://polygonscan.com//block/${data}`
+      default:
+        return `https://polygonscan.com//`
+    }
+  }
   if (chainId === SupportedChainId.ARBITRUM_RINKEBY) {
     switch (type) {
       case ExplorerDataType.TRANSACTION:
